@@ -45,6 +45,10 @@ sudo mv composer.phar /usr/local/bin/composer
 sudo ln -s /usr/local/bin/composer /usr/bin/composer
 
 # Create env directories
+mkdir /var/www/html/scripts
+mkdir /var/www/html/backups
+mkdir /var/www/html/backups/develop
+mkdir /var/www/html/backups/production
 mkdir /var/www/html/staging
 mkdir /var/www/html/develop
 mkdir /var/www/html/production
