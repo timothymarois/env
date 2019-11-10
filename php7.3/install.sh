@@ -36,21 +36,36 @@ yum install -y php73-gd
 # Restart Apache.
 service httpd restart
 
-# Install Composer
+
+# Install PHP Composer
+# ---------------------------------------------
+
+# Download composer
 curl -sS https://getcomposer.org/installer | sudo php
 sudo mv composer.phar /usr/local/bin/composer
 sudo ln -s /usr/local/bin/composer /usr/bin/composer
+
+
+# SETUP ENVIORMENT DIRECTORIES
+# ---------------------------------------------
 
 # Create env directories
 mkdir /var/www/html/staging
 mkdir /var/www/html/develop
 mkdir /var/www/html/production
 
+
+# UPDATE APACHE CONFIG
+# ---------------------------------------------
+
 # Download the httpd.conf
 # and replace the existing config
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/httpd.conf?token=AAS7X5PHVAW4POAEXVQUR5K52GNDE
 mv -f httpd.conf?token=AAS7X5PHVAW4POAEXVQUR5K52GNDE /etc/httpd/conf/httpd.conf
 
+
+# UPDATE PHP CONFIG
+# ---------------------------------------------
 
 # Download the php-7.3.ini
 # and replace the existing config
@@ -60,11 +75,34 @@ mv -f php-7.3.ini?token=AAS7X5POLHUA2N4UZSAB4Q252GNUU /etc/php-7.3.ini
 # Restart Apache.
 service httpd restart
 
+
+# ALLOW ROOT ACCESS
+# ---------------------------------------------
+
+# Download the sshd config
+# and replace the existing sshd_config
+# This will allow you to login via root access
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sshd_config?token=AAS7X5NDU36ILZYKSF5KGVC52GUH4
+mv -f sshd_config?token=AAS7X5NDU36ILZYKSF5KGVC52GUH4 /etc/ssh/sshd_config
+
+# Restart the sshd service
+sudo mkdir -p /root/.ssh
+sudo cp /home/ec2-user/.ssh/authorized_keys /root/.ssh/
+sudo service sshd reload
+
+
+# INSTALL SSL (LETS ENCRYPT)
+# ---------------------------------------------
+
 # Download the Lets Encrypt SSL cert
 # plus test the install
 wget https://dl.eff.org/certbot-auto
 chmod a+x certbot-auto
 ./certbot-auto renew --debug
+
+
+# UPDATE CRON CONFIG
+# ---------------------------------------------
 
 # Download the crontab
 # and replace the existing crontab
