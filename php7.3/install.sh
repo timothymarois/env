@@ -53,6 +53,11 @@ mkdir /var/www/html/staging
 mkdir /var/www/html/develop
 mkdir /var/www/html/production
 
+# ADDING EXAMPLE SYNC FILE
+# Download the sync file
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/example-sync.sh?token=AAS7X5JRM3X4ZVQKNND2TUK52G2WI
+mv -f example-sync.sh?token=AAS7X5JRM3X4ZVQKNND2TUK52G2WI /var/www/html/scripts/example.sh
+
 # APACHE CONFIG
 # Download the httpd.conf
 # and replace the existing config

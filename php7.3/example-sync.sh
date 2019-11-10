@@ -7,6 +7,9 @@ SITE="project.com"
 # either "develop" or "production"
 ENV="develop"
 
+# go into the backup diretory and delete all by 5
+cd /var/www/html/backups/$ENV && rm -rf `ls -t | tail -n +6`
+
 # create a backup of project files
 cp -r /var/www/html/$ENV/$SITE /var/www/html/backups/$ENV/$DATETIME
 
