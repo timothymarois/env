@@ -42,6 +42,9 @@ yum install -y php73-gd
 # Restart Apache.
 service httpd restart
 
+# Make sure apache starts on reboot
+chkconfig --level 2345 httpd on
+
 # Download composer
 curl -sS https://getcomposer.org/installer | sudo php
 sudo mv composer.phar /usr/local/bin/composer
