@@ -17,6 +17,11 @@ cd /var/www/html/backups/$SITE && rm -rf `ls -t | tail -n +11`
 # create a backup of project files
 cp -r /var/www/html/$ENV/$SITE /var/www/html/backups/$SITE/$DATETIME
 
+# create base files if they do not exist
+mkdir -p /var/www/html/$ENV/$SITE/storage/framework/views
+mkdir -p /var/www/html/$ENV/$SITE/storage/framework/cache
+mkdir -p /var/www/html/$ENV/$SITE/storage/framework/sessions
+mkdir -p /var/www/html/$ENV/$SITE/storage/framework/testing
 
 # enter the project files and pull in the git repo
 cd /var/www/html/staging/$PROJECT && git checkout master && git pull
