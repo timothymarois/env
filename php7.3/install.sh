@@ -2,8 +2,12 @@
 # Upgrade an Amazon Linux EC2 to PHP 7.3
 #
 # Must be ran as sudo:
-#     sudo sh env-setup.sh
+#     sudo sh install.sh
 #
+
+# Change the default server time to use EST (New_York)
+\cp -rf /usr/share/zoneinfo/America/New_York /etc/localtime
+
 
 # Install Git
 yum install -y git 
@@ -61,3 +65,11 @@ service httpd restart
 wget https://dl.eff.org/certbot-auto
 chmod a+x certbot-auto
 ./certbot-auto renew --debug
+
+# Download the crontab
+# and replace the existing crontab
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/crontab?token=AAS7X5KNUGOY3WPGKNXS3CK52GSAK
+mv -f crontab?token=AAS7X5KNUGOY3WPGKNXS3CK52GSAK /etc/crontab
+
+# Restart the cron service
+service crond restart
