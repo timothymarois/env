@@ -7,6 +7,7 @@
 
 # first, be God.
 sudo su
+cd /root
 
 # Change the default server time to use EST (New_York)
 \cp -rf /usr/share/zoneinfo/America/New_York /etc/localtime
