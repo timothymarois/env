@@ -7,11 +7,16 @@ SITE="project.com"
 # either "develop" or "production"
 ENV="develop"
 
-# go into the backup diretory and delete all by 5
-cd /var/www/html/backups/$ENV && rm -rf `ls -t | tail -n +6`
+
+# make the back up directory if does not exist
+mkdir -p /var/www/html/backups/$SITE
+
+# go into the backup diretory and delete all by 10
+cd /var/www/html/backups/$SITE && rm -rf `ls -t | tail -n +11`
 
 # create a backup of project files
-cp -r /var/www/html/$ENV/$SITE /var/www/html/backups/$ENV/$DATETIME
+cp -r /var/www/html/$ENV/$SITE /var/www/html/backups/$SITE/$DATETIME
+
 
 # enter the project files and pull in the git repo
 cd /var/www/html/staging/$PROJECT && git checkout master && git pull
