@@ -72,6 +72,16 @@ mv -f httpd.conf?token=AAS7X5PHVAW4POAEXVQUR5K52GNDE /etc/httpd/conf/httpd.conf
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/php-7.3.ini?token=AAS7X5POLHUA2N4UZSAB4Q252GNUU
 mv -f php-7.3.ini?token=AAS7X5POLHUA2N4UZSAB4Q252GNUU /etc/php-7.3.ini
 
+
+# ADD SITES CONFIG
+# ---------------------------------------------
+
+# Download the php-7.3.ini
+# and replace the existing config
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sites.conf?token=AAS7X5MPN7ITHCOFGXR3UJ252GVY6
+mv -f sites.conf?token=AAS7X5MPN7ITHCOFGXR3UJ252GVY6 /etc/httpd/conf.d/sites.conf
+
+
 # Restart Apache.
 service httpd restart
 
