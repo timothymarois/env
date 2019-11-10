@@ -16,4 +16,4 @@ HOME=/
 
 # Check for SSL renewals every day at 8 AM
 # ================================================================================================
-0 8 * * * root ./certbot-auto renew --debug --post-hook "sudo service httpd restart"
+0 8 * * * root /root/certbot-auto renew --debug --post-hook "sudo service httpd restart"
