@@ -6,7 +6,7 @@
 #
 
 # first, be God.
-sudo su
+# sudo su
 cd /root
 
 # Change the default server time to use EST (New_York)
