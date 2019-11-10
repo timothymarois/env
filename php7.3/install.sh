@@ -9,6 +9,9 @@
 # sudo su
 cd /root
 
+# update the linux repo
+yum -y update
+
 # Change the default server time to use EST (New_York)
 \cp -rf /usr/share/zoneinfo/America/New_York /etc/localtime
 
