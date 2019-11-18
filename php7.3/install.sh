@@ -59,26 +59,26 @@ mkdir /var/www/html/production
 
 # ADDING EXAMPLE SYNC FILE
 # Download the sync file
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/example-sync.sh?token=AAS7X5JRM3X4ZVQKNND2TUK52G2WI
-mv -f example-sync.sh?token=AAS7X5JRM3X4ZVQKNND2TUK52G2WI /var/www/html/scripts/example.sh
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/example-sync.sh
+mv -f example-sync.sh /var/www/html/scripts/example.sh
 
 # APACHE CONFIG
 # Download the httpd.conf
 # and replace the existing config
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/httpd.conf?token=AAS7X5PHVAW4POAEXVQUR5K52GNDE
-mv -f httpd.conf?token=AAS7X5PHVAW4POAEXVQUR5K52GNDE /etc/httpd/conf/httpd.conf
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/httpd.conf
+mv -f httpd.conf /etc/httpd/conf/httpd.conf
 
 # PHP CONFIG
 # Download the php-7.3.ini
 # and replace the existing config
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/php-7.3.ini?token=AAS7X5POLHUA2N4UZSAB4Q252GNUU
-mv -f php-7.3.ini?token=AAS7X5POLHUA2N4UZSAB4Q252GNUU /etc/php-7.3.ini
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/php-7.3.ini
+mv -f php-7.3.ini /etc/php-7.3.ini
 
 # VIRTUAL HOST (SITES)
 # Download the php-7.3.ini
 # and replace the existing config
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sites.conf?token=AAS7X5MPN7ITHCOFGXR3UJ252GVY6
-mv -f sites.conf?token=AAS7X5MPN7ITHCOFGXR3UJ252GVY6 /etc/httpd/conf.d/sites.conf
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sites.conf
+mv -f sites.conf /etc/httpd/conf.d/sites.conf
 
 # Restart Apache.
 service httpd restart
@@ -87,8 +87,8 @@ service httpd restart
 # Download the sshd config
 # and replace the existing sshd_config
 # This will allow you to login via root access
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sshd_config?token=AAS7X5NDU36ILZYKSF5KGVC52GUH4
-mv -f sshd_config?token=AAS7X5NDU36ILZYKSF5KGVC52GUH4 /etc/ssh/sshd_config
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sshd_config
+mv -f sshd_config /etc/ssh/sshd_config
 
 # Restart the sshd service
 sudo mkdir -p /root/.ssh
@@ -105,8 +105,8 @@ chmod a+x certbot-auto
 # CRON CONFIG
 # Download the crontab
 # and replace the existing crontab
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/crontab?token=AAS7X5KNUGOY3WPGKNXS3CK52GSAK
-mv -f crontab?token=AAS7X5KNUGOY3WPGKNXS3CK52GSAK /etc/crontab
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/crontab
+mv -f crontab /etc/crontab
 
 # Restart the cron service
 service crond restart
