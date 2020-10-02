@@ -9,7 +9,7 @@
 set -e
 
 # first, be God.
-sudo su
+# sudo su
 cd /root
 
 # update the linux repo
