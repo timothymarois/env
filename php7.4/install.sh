@@ -137,7 +137,7 @@ tar -xf geoipupdate_4.3.0_linux_386.tar.gz
 mv -f ./geoipupdate_4.3.0_linux_386/geoipupdate /bin/geoipupdate
 
 # mkdir for geoip databases
-/usr/local/share/GeoIP
+mkdir /usr/local/share/GeoIP
 
 # run the update command
 geoipupdate
