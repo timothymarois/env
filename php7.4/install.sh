@@ -6,7 +6,7 @@
 #
 
 # exit when any command fails
-set -e
+# set -e
 
 # first, be God.
 # sudo su
