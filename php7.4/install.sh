@@ -50,8 +50,10 @@ curl -sS https://getcomposer.org/installer | sudo php
 sudo mv composer.phar /usr/local/bin/composer
 sudo ln -s /usr/local/bin/composer /usr/bin/composer
 
-# Install certbot for SSL
+# stay in tmp directory
 cd /tmp
+
+# Install certbot for SSL
 wget -O epel.rpm –nv \
 https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install -y ./epel.rpm
