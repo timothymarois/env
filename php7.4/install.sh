@@ -45,13 +45,13 @@ sudo systemctl restart httpd
 # Enable httpd (apache) on boot
 sudo systemctl enable httpd
 
+# stay in tmp directory
+cd /tmp
+
 # Install Composer
 curl -sS https://getcomposer.org/installer | sudo php
 sudo mv composer.phar /usr/local/bin/composer
 sudo ln -s /usr/local/bin/composer /usr/bin/composer
-
-# stay in tmp directory
-cd /tmp
 
 # Install certbot for SSL
 wget -O epel.rpm –nv \
