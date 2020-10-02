@@ -42,6 +42,9 @@ sudo yum install -y php-xml
 # Restart Apache.
 sudo systemctl restart httpd
 
+# Enable httpd (apache) on boot
+sudo systemctl enable httpd
+
 # Install Composer
 curl -sS https://getcomposer.org/installer | sudo php
 sudo mv composer.phar /usr/local/bin/composer
@@ -60,6 +63,7 @@ mkdir /var/www/html/develop
 mkdir /var/www/html/production
 mkdir /var/www/html/backups
 mkdir /var/www/html/scripts
+mkdir /var/www/html/production/default
 
 sudo usermod -a -G apache ec2-user
 sudo chown -R ec2-user:apache /var/www
@@ -67,20 +71,34 @@ sudo chown -R ec2-user:apache /var/www
 # APACHE CONFIG
 # Download the httpd.conf
 # and replace the existing config
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/httpd.conf
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/httpd.conf
 mv -f httpd.conf /etc/httpd/conf/httpd.conf
 
 # PHP CONFIG
-# Download the php-7.3.ini
+# Download the php.ini
 # and replace the existing config
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/php-7.3.ini
-mv -f php-7.3.ini /etc/php-7.3.ini
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/php.ini
+mv -f php.ini /etc/php.ini
+
+# APACHE CACHE (GZIP)
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/apache-cache.conf
+mv -f apache-cache.conf /etc/httpd/conf.d/apache-cache.conf
+
+# APACHE CACHE (workers update)
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/apache-workers.conf
+mv -f apache-workers.conf /etc/httpd/conf.d/apache-workers.conf
+
+# VIRTUAL HOST (DEFAULT)
+# Download the sites-a.conf
+# and add to apache conf
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/sites-a.conf
+mv -f sites-a.conf /etc/httpd/conf.d/sites-a.conf
 
 # VIRTUAL HOST (SITES)
-# Download the php-7.3.ini
-# and replace the existing config
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sites.conf
-mv -f sites.conf /etc/httpd/conf.d/sites.conf
+# Download the sites-a.conf
+# and add to apache conf
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/sites-b.conf
+mv -f sites-b.conf /etc/httpd/conf.d/sites-b.conf
 
 # Restart Apache.
 service httpd restart
@@ -89,7 +107,7 @@ service httpd restart
 # Download the sshd config
 # and replace the existing sshd_config
 # This will allow you to login via root access
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/sshd_config
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/sshd_config
 mv -f sshd_config /etc/ssh/sshd_config
 
 # Restart the sshd service
@@ -97,18 +115,23 @@ sudo mkdir -p /root/.ssh
 sudo cp /home/ec2-user/.ssh/authorized_keys /root/.ssh/
 sudo service sshd reload
 
-# SSL/LETS ENCRYPT
-# Download the Lets Encrypt SSL cert
-# plus test the install
-wget https://dl.eff.org/certbot-auto
-chmod a+x certbot-auto
-./certbot-auto renew --debug
-
 # CRON CONFIG
 # Download the crontab
 # and replace the existing crontab
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.3/crontab
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/crontab
 mv -f crontab /etc/crontab
 
 # Restart the cron service
 service crond restart
+
+# if doesnt eixst... create it
+# mkdir /usr/local/etc/
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/GeoIP.conf
+mv -f GeoIP.conf /usr/local/etc/GeoIP.conf
+
+# Install new version of geoip 4
+wget https://github.com/maxmind/geoipupdate/releases/download/v4.3.0/geoipupdate_4.3.0_linux_386.tar.gz
+tar -xf geoipupdate_4.3.0_linux_386.tar.gz
+
+# replace existing version...
+mv -f ./geoipupdate_4.3.0_linux_386/geoipupdate /bin/geoipupdate
