@@ -14,7 +14,7 @@ HOME=/
 # |  |  |  |  |
 # *  *  *  *  * user-name command to be executed
 
-# Check for SSL renewals every day at 8 AM
+# Run required maintenance scripts
 # ================================================================================================
 
 # Update SSL Certificates (6 AM each day)
