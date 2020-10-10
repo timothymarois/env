@@ -16,7 +16,11 @@ mkdir ${rootpath}
 mkdir ${publicpath} 
 
 # make sure user has permissions
+umask 002
 chown -R ${username}:apache ${rootpath}
+chgrp -R apache ${rootpath}
+chmod g+s ${rootpath}
+chmod -R 0775 ${rootpath}
 
 # copy the example
 cp example.conf ${domain}.conf
