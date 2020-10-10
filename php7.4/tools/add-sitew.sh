@@ -11,16 +11,16 @@ publicpath=${rootpath}/public
 cd ${userpath}
 
 # make site directory
-mkdir ${logpath}
+mkdir ${logpath} 
 mkdir ${rootpath} 
 mkdir ${publicpath} 
 
 # make sure user has permissions
-umask 002
 chown -R ${username}:apache ${rootpath}
 chgrp -R apache ${rootpath}
 chmod -R 0775 ${rootpath}
 chmod -R g+s ${rootpath}
+setfacl -Rdm g:apache:rwx ${rootpath}
 
 # go into root folder
 cd /root/tools
