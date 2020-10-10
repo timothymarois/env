@@ -18,6 +18,9 @@ yum -y update
 # Change the default server time to use EST (New_York)
 \cp -rf /usr/share/zoneinfo/America/New_York /etc/localtime
 
+# install ftp service for user manage
+sudo yum install -y vsftpd
+
 # Install Git
 sudo yum install -y git 
 
