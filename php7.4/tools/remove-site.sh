@@ -15,4 +15,6 @@ rm -rf ${rootpath}
 rm -rf ${logpath}
 
 # remove certificate on domain
-certbot delete --cert-name ${domain}
+certbot delete --cert-name ${domain} --post-hook "service httpd restart"
+
+service httpd restart

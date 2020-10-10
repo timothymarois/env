@@ -28,12 +28,13 @@ cat > ${domain}.conf <<EOF
 <VirtualHost *:80 *:443>
     DocumentRoot ${publicpath}
     ServerName ${domain}
+    ServerAlias www.${domain}
 
     RewriteEngine On
 
     # remove the www. (redirect to non-www)
     RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+    RewriteRule ^(.*)$ http://%1/\$1 [R=301,L]
 
     # redirect to https (if using http)
     RewriteCond %{SERVER_PORT} ^80$
@@ -65,6 +66,6 @@ mv ${domain}.conf /etc/httpd/conf.d/${domain}.conf
 
 service httpd restart
 
-certbot --apache --agree-tos --server https://acme-v02.api.letsencrypt.org/directory -d ${domain} --non-interactive --post-hook "service httpd restart"
+certbot --apache --agree-tos --server https://acme-v02.api.letsencrypt.org/directory -d ${domain} -d www.${domain} --non-interactive --post-hook "service httpd restart"
 
 service httpd restart

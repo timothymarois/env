@@ -83,6 +83,15 @@ sudo yum install -y python2-certbot-apache.noarch
 
 # ------------------------------------------------
 
+# VSFTPD
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/config/vsftpd.conf
+mv -f vsftpd.conf /etc/vsftpd/vsftpd.conf
+
+# Restart FTP.
+service vsftpd restart
+
+# ------------------------------------------------
+
 # Create the default directory
 mkdir /var/www/html/default
 
@@ -145,7 +154,7 @@ mv -f default.conf /etc/httpd/conf.d/001-default.conf
 
 # VIRTUAL HOST (SITES)
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
-# mv -f example.conf /etc/httpd/conf.d/example.conf
+mv -f example.conf /root/tools/example.conf
 
 # Restart Apache.
 service httpd restart
