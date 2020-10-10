@@ -8,19 +8,22 @@ rootpath=${userpath}/apps/${domain}
 publicpath=${rootpath}/public
 
 # go into root folder
-cd /root/tools
+cd ${userpath}
 
 # make site directory
 mkdir ${logpath}
-mkdir ${rootpath}
+mkdir ${rootpath} 
 mkdir ${publicpath} 
 
 # make sure user has permissions
 umask 002
 chown -R ${username}:apache ${rootpath}
 chgrp -R apache ${rootpath}
-chmod g+s ${rootpath}
 chmod -R 0775 ${rootpath}
+chmod -R g+s ${rootpath}
+
+# go into root folder
+cd /root/tools
 
 # copy the example
 cp example.conf ${domain}.conf

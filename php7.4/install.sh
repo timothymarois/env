@@ -152,13 +152,8 @@ service crond restart
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/default.conf
 mv -f default.conf /etc/httpd/conf.d/001-default.conf 
 
-# VIRTUAL HOST (SITES)
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
-mv -f example.conf /root/tools/example.conf
-
 # Restart Apache.
 service httpd restart
-
 
 # make the tools directory
 mkdir /root/tools
@@ -172,6 +167,7 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-site.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-user.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-ssl.sh
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
 
 # go back to tmp
 cd /tmp
