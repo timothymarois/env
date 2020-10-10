@@ -138,3 +138,9 @@ Subsystem sftp	/usr/libexec/openssh/sftp-server
 
 AuthorizedKeysCommand /opt/aws/bin/eic_run_authorized_keys %u %f
 AuthorizedKeysCommandUser ec2-instance-connect
+
+# Added to match users group for access
+Match Group sftp
+    ChrootDirectory %h
+    ForceCommand internal-sftp
+    AllowTcpForwarding no  

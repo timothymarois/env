@@ -17,8 +17,8 @@ HOME=/
 # Run required maintenance scripts
 # ================================================================================================
 
-# Update SSL Certificates (6 AM each day)
-0 6 * * * root certbot renew --debug --post-hook "sudo service httpd restart"
+# Update SSL Certificates (8 AM each day)
+0 8 * * * root certbot renew --debug --post-hook "sudo service httpd restart"
 
 # Update GEOIP Database (8 AM each day)
-0 8 * * * root geoipupdate
+0 6 * * * root geoipupdate
