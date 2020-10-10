@@ -167,6 +167,7 @@ cd /root/tools
 
 # add user tools
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-site.sh
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-sitew.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-user.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-site.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-user.sh
