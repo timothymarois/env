@@ -11,6 +11,15 @@
 # first, lets go into root
 cd /root
 
+# create shortcut directory
+mkdir shortcuts
+
+# setup shortcuts
+ln -sf /etc/httpd shortcuts/httpd
+ln -sf /etc shortcuts/etc
+ln -sf /etc/php.ini shortcuts/php.ini
+ln -sf /etc/crontab shortcuts/crontab
+
 # ------------------------------------------------
 
 # update the linux repo
