@@ -121,6 +121,9 @@ mv -f php.ini /etc/php.ini
 # Restart Apache.
 service httpd restart
 
+# then restart the php-fpm modules
+restart php-fpm.service
+
 # ------------------------------------------------
 
 # ALLOW ROOT ACCESS
