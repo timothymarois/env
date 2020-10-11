@@ -169,35 +169,3 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-ssl.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/wp-install.sh
-
-# go back to tmp
-cd /tmp
-
-# if doesnt eixst... create it
-# mkdir /usr/local/etc/
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/GeoIP.conf
-# mv -f GeoIP.conf /usr/local/etc/GeoIP.conf
-
-# Install new version of geoip 4
-# wget https://github.com/maxmind/geoipupdate/releases/download/v4.3.0/geoipupdate_4.3.0_linux_386.tar.gz
-# tar -xf geoipupdate_4.3.0_linux_386.tar.gz
-
-# replace existing version...
-# mv -f ./geoipupdate_4.3.0_linux_386/geoipupdate /bin/geoipupdate
-
-# mkdir for geoip databases
-# mkdir /usr/local/share/GeoIP
-
-# run the update command
-# geoipupdate
-
-# Install NVM "nvm"
-wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.36.0/install.sh | bash
-
-# Load nvm now
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Install node
-nvm install node
