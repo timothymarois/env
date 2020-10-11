@@ -168,6 +168,7 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-user.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-ssl.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/wp-install.sh
 
 # go back to tmp
 cd /tmp
