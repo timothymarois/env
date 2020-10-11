@@ -28,6 +28,12 @@ cd /root/tools
 # copy the example
 cp example.conf ${domain}.conf
 
+echo "--------------------------------"
+echo ${username}
+echo ${domain}
+echo ${rootpath}
+echo "--------------------------------"
+
 # create a new vhost
 cat > ${domain}.conf <<EOF  
 # ${domain}
@@ -63,6 +69,8 @@ cat > ${domain}.conf <<EOF
 
     ErrorLog "${logpath}/errors.log"
 
+    CustomLog "${logpath}/access.log" common
+
     # debug, info, notice, warn, error, crit,
     LogLevel crit
 </VirtualHost>
@@ -71,8 +79,16 @@ EOF
 
 mv ${domain}.conf /etc/httpd/conf.d/${domain}.conf
 
+echo "Restarting..."
+
 service httpd restart
 
+echo "--------------------------------"
+echo "Enabling SSL..."
+
 certbot --apache --agree-tos --server https://acme-v02.api.letsencrypt.org/directory -d ${domain} -d www.${domain} --non-interactive --post-hook "service httpd restart"
+
+echo "--------------------------------"
+echo "Restarting..."
 
 service httpd restart
