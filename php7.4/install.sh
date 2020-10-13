@@ -19,6 +19,10 @@ ln -sf /etc/httpd shortcuts/httpd
 ln -sf /etc shortcuts/etc
 ln -sf /etc/php.ini shortcuts/php.ini
 ln -sf /etc/crontab shortcuts/crontab
+ln -sf /etc/logrotate.conf shortcuts/logrotate.conf
+ln -sf /var/lib shortcuts/var_lib
+ln -sf /var/log shortcuts/log
+ln -sf /etc/logrotate.d shortcuts/logrotate
 
 # ------------------------------------------------
 
