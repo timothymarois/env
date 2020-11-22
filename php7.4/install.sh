@@ -23,6 +23,9 @@ ln -sf /etc/logrotate.conf shortcuts/logrotate.conf
 ln -sf /var/lib shortcuts/var_lib
 ln -sf /var/log shortcuts/log
 ln -sf /etc/logrotate.d shortcuts/logrotate
+ln -sf /etc/php-fpm.d shortcuts/php-fpm
+
+/etc/php-fpm.conf
 
 # ------------------------------------------------
 
@@ -69,6 +72,9 @@ sudo yum install -y php-opcache
 sudo yum install -y php-soap
 sudo yum install -y php-gd
 sudo yum install -y php-xml
+
+# Install development tools
+sudo yum install -y gcc-c++
 
 # Restart Apache.
 sudo systemctl restart httpd

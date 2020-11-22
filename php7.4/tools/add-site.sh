@@ -45,8 +45,8 @@ cat > ${domain}.conf <<EOF
     RewriteEngine On
 
     # remove the www. (redirect to non-www)
-    RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-    RewriteRule ^(.*)$ http://%1/\$1 [R=301,L]
+    #RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+    #RewriteRule ^(.*)$ http://%1/\$1 [R=301,L]
 
     # redirect to https (if using http)
     RewriteCond %{SERVER_PORT} ^80$
