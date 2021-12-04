@@ -12,11 +12,8 @@ stagingpath=${userpath}/staging/${directory}
 # go into repo directory
 cd ${stagingpath}
 
-# pull the lastest repo
-git pull
-
-# install npm
-npm install
-
 # nuxt build-spa html content (/dist)
-npm run build-spa
+npm run build
+
+# nuxt generate the html files
+npm run generate

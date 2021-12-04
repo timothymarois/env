@@ -3,9 +3,9 @@
 
 # Example:
 # 
-# sh publish-dist.sh username repopath domain
+# sh deploy-dist.sh username repopath domain
 #
-# sh publish-dist.sh tmarois myrepo mydomain.com
+# sh deploy-dist.sh tmarois myrepo mydomain.com
 #
 
 
@@ -23,7 +23,6 @@ publicpath=${domainpath}/public
 
 rsync -av -X -A  \
 --exclude '.env' \
---exclude '.htaccess' \
 --delete-after \
 ${stagingpath}/dist/ ${publicpath}
 

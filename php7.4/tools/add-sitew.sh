@@ -69,8 +69,6 @@ cat > ${domain}.conf <<EOF
 
     ErrorLog "${logpath}/errors.log"
 
-    CustomLog "${logpath}/access.log" common
-
     # debug, info, notice, warn, error, crit,
     LogLevel crit
 </VirtualHost>

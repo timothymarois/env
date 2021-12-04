@@ -7,16 +7,14 @@ username=$1
 directory=$2
 
 userpath=/home/${username}
-stagingpath=${userpath}/staging/${directory}
+stagingpath=${userpath}/staging/${directory} 
 
 # go into repo directory
 cd ${stagingpath}
 
+# make sure we're in the master branch
+git checkout master
+
 # pull the lastest repo
 git pull
-
-# install npm
-npm install
-
-# nuxt build-spa html content (/dist)
-npm run build-spa
+# gitoutput=$(git pull 2>&1)

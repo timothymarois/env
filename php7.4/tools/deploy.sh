@@ -3,9 +3,8 @@
 
 # Example:
 # 
-# sh publish-dist.sh username repopath domain
+# sh deploy.sh username repoName domain
 #
-# sh publish-dist.sh tmarois myrepo mydomain.com
 #
 
 
@@ -19,13 +18,15 @@ domain=$3
 userpath=/home/${username}
 stagingpath=${userpath}/staging/${repopath}
 domainpath=${userpath}/apps/${domain}
-publicpath=${domainpath}/public
+publicpath=${domainpath}
 
 rsync -av -X -A  \
 --exclude '.env' \
+--exclude '.htpasswd' \
 --exclude '.htaccess' \
+--exclude 'storage/*' \
 --delete-after \
-${stagingpath}/dist/ ${publicpath}
+${stagingpath}/ ${publicpath}
 
 sudo chmod -R 0775 ${domainpath}
 sudo chgrp -R apache ${domainpath}

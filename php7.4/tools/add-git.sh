@@ -1,14 +1,21 @@
 #!/bin/bash
 
+# Example:
+# 
+# sh add-git.sh username directory repoName
+#
+# add-git.sh USERNAME DIRECTORY GITHUB_LINK
+#
+
 username=$1
 directory=$2
 github=$3
 
 userpath=/home/${username}
-stagingpath=${userpath}/staging
+stagingpage=${userpath}/staging
 
-# go into staging directory
-cd ${stagingpath}
+# go into root folder
+cd ${stagingpage}
 
 # make site directory
 mkdir ./${directory}
@@ -17,8 +24,8 @@ mkdir ./${directory}
 cd ./${directory}
 
 # copy the example
-# just supply the git directory "timothymarois/oak-directory"
-git clone https://USERNAME:PASSWORD@github.com/${github}.git .
+# example: https://USERNAME:GITKEY@github.com/${github}.git
+git clone ${github} .
 
 # store the credentials on this repo
 git config credential.helper store
