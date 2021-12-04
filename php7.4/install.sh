@@ -191,3 +191,4 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-ssl.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/wp-install.sh
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/deploy.sh
