@@ -40,9 +40,6 @@ sudo yum install -y git
 # Install development tools
 sudo yum install -y gcc-c++
 
-# Install supervisor
-sudo yum install -y supervisor
-
 # Install Llibsodium
 sudo yum install -y libsodium
 
@@ -75,6 +72,14 @@ sudo systemctl restart httpd
 
 # Enable httpd (apache) on boot
 sudo systemctl enable httpd
+
+# ------------------------------------------------
+
+# Install supervisor
+sudo yum install -y supervisor
+
+# start up the supervisor system
+service supervisord start
 
 # ------------------------------------------------
 
@@ -170,27 +175,6 @@ mv -f default.conf /etc/httpd/conf.d/001-default.conf
 
 # Restart Apache.
 sudo systemctl restart httpd
-
-# ------------------------------------------------
-
-# make the tools directory
-# mkdir /root/tools
-
-# go into directory
-# cd /root/tools
-
-# add user tools
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-site.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-sitew.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-user.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-site.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-user.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-ssl.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/wp-install.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/deploy.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/git-pull.sh
-# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-git.sh
 
 # ------------------------------------------------
 

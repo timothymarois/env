@@ -1,9 +1,11 @@
 
 # README ENV
 
-Install and setup the instance
----------------------------------------
-`sh install.sh`
+To install, run this: 
+
+```
+wget https://raw.githubusercontent.com/timothymarois/env/master/php7.4/install.sh -O - | sh
+```
 
 ## Adding a new user
 ---------------------------------------
