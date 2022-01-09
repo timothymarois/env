@@ -1,6 +1,6 @@
 SHELL=/bin/bash
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
-MAILTO="timothymarois@gmail.com"
+MAILTO="tim@marois.io"
 HOME=/
 
 # For details see man 4 crontabs
@@ -17,8 +17,8 @@ HOME=/
 # Run required maintenance scripts
 # ================================================================================================
 
-# Update SSL Certificates (8 AM each day)
-0 8 * * * root certbot renew --debug --post-hook "sudo service httpd restart"
+# Update SSL Certificates (7 AM each day)
+0 7 * * * root certbot renew --debug --post-hook "sudo systemctl restart httpd"
 
 # Update GEOIP Database (8 AM each day)
-0 6 * * * root geoipupdate
+# 0 6 * * * root geoipupdate
