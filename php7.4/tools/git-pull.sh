@@ -13,7 +13,7 @@ stagingpath=${userpath}/staging/${directory}
 cd ${stagingpath}
 
 # make sure we're in the master branch
-git checkout master
+# git checkout master
 
 # pull the lastest repo
 git pull

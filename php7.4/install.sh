@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Upgrade an Amazon Linux EC2 to PHP 7.3
+# Upgrade an Amazon Linux EC2 to PHP 7.4
 #
 # Must be ran as sudo:
 #     sudo sh install.sh
@@ -53,6 +53,9 @@ groupadd sftp
 # Install Git
 sudo yum install -y git 
 
+# Install supervisor
+sudo yum install supervisor
+
 # ------------------------------------------------
 
 # Install Apache 2.4 + PHP 7.3
@@ -72,9 +75,16 @@ sudo yum install -y php-opcache
 sudo yum install -y php-soap
 sudo yum install -y php-gd
 sudo yum install -y php-xml
+sudo yum install -y php-pgsql
+# somtimes this is required
+sudo yum install -y php-sodium
+sudo yum install -y php-posix
 
 # Install development tools
 sudo yum install -y gcc-c++
+
+# Install php sodium (sometimes required)
+# sudo yum install -y libsodium
 
 # Restart Apache.
 sudo systemctl restart httpd
