@@ -81,6 +81,9 @@ sudo yum install -y supervisor
 # start up the supervisor system
 service supervisord start
 
+# start suoervisor on boot
+sudo systemctl enable supervisord
+
 # ------------------------------------------------
 
 # go to tmp directory
