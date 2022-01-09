@@ -13,13 +13,13 @@ cd /root
 
 # ------------------------------------------------
 
-# update the linux repo
-yum -y update
+# Change the default server time to use EST (New_York)
+\cp -rf /usr/share/zoneinfo/America/New_York /etc/localtime
 
 # ------------------------------------------------
 
-# Change the default server time to use EST (New_York)
-\cp -rf /usr/share/zoneinfo/America/New_York /etc/localtime
+# update the linux repo
+yum -y update
 
 # ------------------------------------------------
 
@@ -37,8 +37,14 @@ groupadd sftp
 # Install Git
 sudo yum install -y git 
 
+# Install development tools
+sudo yum install -y gcc-c++
+
 # Install supervisor
-sudo yum install supervisor
+sudo yum install -y supervisor
+
+# Install Llibsodium
+sudo yum install -y libsodium
 
 # ------------------------------------------------
 
@@ -63,12 +69,6 @@ sudo yum install -y php-pgsql
 # somtimes this is required
 sudo yum install -y php-sodium
 sudo yum install -y php-posix
-
-# Install development tools
-sudo yum install -y gcc-c++
-
-# Install php sodium (sometimes required)
-# sudo yum install -y libsodium
 
 # Restart Apache.
 sudo systemctl restart httpd
@@ -121,7 +121,7 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/config
 mv -f httpd.conf /etc/httpd/conf/httpd.conf
 
 # Restart Apache.
-service httpd restart
+sudo systemctl restart httpd
 
 # ------------------------------------------------
 
@@ -132,10 +132,10 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/config
 mv -f php.ini /etc/php.ini
 
 # Restart Apache.
-service httpd restart
+sudo systemctl restart httpd
 
 # then restart the php-fpm modules
-restart php-fpm.service
+sudo systemctl restart php-fpm
 
 # ------------------------------------------------
 
@@ -160,7 +160,7 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/config
 mv -f crontab /etc/crontab
 
 # Restart the cron service
-service crond restart
+sudo systemctl restart crond
 
 # ------------------------------------------------
 
@@ -169,7 +169,7 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts
 mv -f default.conf /etc/httpd/conf.d/001-default.conf 
 
 # Restart Apache.
-service httpd restart
+sudo systemctl restart httpd
 
 # ------------------------------------------------
 
