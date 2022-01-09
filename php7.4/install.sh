@@ -174,28 +174,49 @@ sudo systemctl restart httpd
 # ------------------------------------------------
 
 # make the tools directory
-mkdir /root/tools
+# mkdir /root/tools
 
 # go into directory
-cd /root/tools
+# cd /root/tools
 
 # add user tools
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-site.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-sitew.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-user.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-site.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-user.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-ssl.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/wp-install.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/deploy.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/git-pull.sh
-wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-git.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-site.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-sitew.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-user.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-site.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/remove-user.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-ssl.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/wp-install.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/deploy.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/git-pull.sh
+# wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-git.sh
 
 # ------------------------------------------------
 
 # go back into roo
 cd /root
+
+# create the env repo directory
+mkdir env
+cd /root/env
+
+# clone the repo
+git clone https://github.com/timothymarois/env.git .
+
+# store the credentials on this repo
+git config credential.helper store
+
+# double check
+git pull
+
+# ------------------------------------------------
+
+# go back into roo
+cd /root
+
+# create a shortcut to tools
+ln -sf /root/env/php7.4/tools tools
 
 # create shortcut directory
 mkdir shortcuts
