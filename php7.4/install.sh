@@ -45,7 +45,7 @@ sudo yum install -y gcc-c++
 
 # ------------------------------------------------
 
-# Install Apache 2.4 + PHP 7.3
+# Install Apache 2.4 + PHP 7.4
 sudo yum install -y httpd
 sudo amazon-linux-extras install -y php7.4
 
