@@ -11,22 +11,6 @@
 # first, lets go into root
 cd /root
 
-# create shortcut directory
-mkdir shortcuts
-
-# setup shortcuts
-ln -sf /etc/httpd shortcuts/httpd
-ln -sf /etc shortcuts/etc
-ln -sf /etc/php.ini shortcuts/php.ini
-ln -sf /etc/crontab shortcuts/crontab
-ln -sf /etc/logrotate.conf shortcuts/logrotate.conf
-ln -sf /var/lib shortcuts/var_lib
-ln -sf /var/log shortcuts/log
-ln -sf /etc/logrotate.d shortcuts/logrotate
-ln -sf /etc/php-fpm.d shortcuts/php-fpm
-
-/etc/php-fpm.conf
-
 # ------------------------------------------------
 
 # update the linux repo
@@ -187,8 +171,11 @@ mv -f default.conf /etc/httpd/conf.d/001-default.conf
 # Restart Apache.
 service httpd restart
 
+# ------------------------------------------------
+
 # make the tools directory
 mkdir /root/tools
+
 # go into directory
 cd /root/tools
 
@@ -202,3 +189,30 @@ wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/vhosts/example.conf
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/wp-install.sh
 wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/deploy.sh
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/git-pull.sh
+wget -N https://raw.githubusercontent.com/timothymarois/env/master/php7.4/tools/add-git.sh
+
+# ------------------------------------------------
+
+# go back into roo
+cd /root
+
+# create shortcut directory
+mkdir shortcuts
+
+# setup shortcuts
+ln -sf /etc/httpd shortcuts/httpd
+ln -sf /etc shortcuts/etc
+ln -sf /etc/php.ini shortcuts/php.ini
+ln -sf /etc/crontab shortcuts/crontab
+ln -sf /etc/logrotate.conf shortcuts/logrotate.conf
+ln -sf /var/lib shortcuts/var_lib
+ln -sf /var/log shortcuts/log
+ln -sf /etc/logrotate.d shortcuts/logrotate
+ln -sf /etc/supervisord.conf shortcuts/supervisord.conf
+ln -sf /etc/php-fpm.d shortcuts/php-fpm
+
+# not sure why this is here??
+# /etc/php-fpm.conf
+
+# ------------------------------------------------

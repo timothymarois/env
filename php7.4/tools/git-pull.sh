@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Example:
+# 
+# sh git-pull.sh userName repoName
+#
+
 # exit when any command fails
 set -e
 
