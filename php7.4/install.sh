@@ -220,7 +220,4 @@ ln -sf /etc/logrotate.d shortcuts/logrotate
 ln -sf /etc/supervisord.conf shortcuts/supervisord.conf
 ln -sf /etc/php-fpm.d shortcuts/php-fpm
 
-# not sure why this is here??
-# /etc/php-fpm.conf
-
 # ------------------------------------------------
