@@ -75,19 +75,6 @@ sudo systemctl enable httpd
 
 # ------------------------------------------------
 
-sleep 3
-
-# Install supervisor
-sudo yum install -y supervisor
-
-# start up the supervisor system
-sudo systemctl start supervisord
-
-# start suoervisor on boot
-sudo systemctl enable supervisord
-
-# ------------------------------------------------
-
 # go to tmp directory
 cd /tmp
 
@@ -103,6 +90,17 @@ wget -O epel.rpm –nv \
 https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install -y ./epel.rpm
 sudo yum install -y python2-certbot-apache.noarch
+
+# ------------------------------------------------
+
+# Install supervisor
+sudo yum install -y supervisor
+
+# start up the supervisor system
+sudo systemctl start supervisord
+
+# start suoervisor on boot
+sudo systemctl enable supervisord
 
 # ------------------------------------------------
 

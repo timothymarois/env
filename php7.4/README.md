@@ -6,7 +6,7 @@ To install, run this:
 Be sure to run this on `sudo su`
 
 ```
-wget https://raw.githubusercontent.com/timothymarois/env/master/php7.4/install.sh -O - | sh
+sudo wget https://raw.githubusercontent.com/timothymarois/env/master/php7.4/install.sh -O - | sh
 ```
 
 ## Adding a new user
