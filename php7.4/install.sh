@@ -21,6 +21,8 @@ cd /root
 # update the linux repo
 sudo yum -y update
 
+sleep .2
+
 # ------------------------------------------------
 
 # install ftp service for user manage
@@ -41,7 +43,9 @@ sudo yum install -y git
 sudo yum install -y gcc-c++
 
 # Install Llibsodium
-sudo yum install -y libsodium
+# sudo yum install -y libsodium
+
+sleep .2
 
 # ------------------------------------------------
 
@@ -67,6 +71,8 @@ sudo yum install -y php-pgsql
 sudo yum install -y php-sodium
 sudo yum install -y php-posix
 
+sleep .2
+
 # Restart Apache.
 sudo systemctl restart httpd
 
@@ -75,8 +81,12 @@ sudo systemctl enable httpd
 
 # ------------------------------------------------
 
+sleep .2
+
 # Install supervisor
 sudo yum install -y supervisor
+
+sleep .5
 
 # start up the supervisor system
 service supervisord start
