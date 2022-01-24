@@ -84,7 +84,7 @@ service httpd restart
 echo "--------------------------------"
 echo "Enabling SSL..."
 
-certbot --apache --agree-tos --server https://acme-v02.api.letsencrypt.org/directory -d ${domain} -d www.${domain} --non-interactive --post-hook "service httpd restart"
+certbot --apache --agree-tos --email "tim@marois.io" --server https://acme-v02.api.letsencrypt.org/directory -d ${domain} -d www.${domain} --non-interactive --post-hook "service httpd restart"
 
 echo "--------------------------------"
 echo "Restarting..."
