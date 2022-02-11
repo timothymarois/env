@@ -23,7 +23,6 @@ publicpath=${domainpath}
 rsync -av -X -A  \
 --exclude '.env' \
 --exclude '.htpasswd' \
---exclude 'storage/app/*' \
 --exclude 'storage/framework/cache/*' \
 --exclude 'storage/framework/testing/*' \
 --exclude 'storage/framework/views/*' \
