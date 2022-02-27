@@ -22,6 +22,9 @@ chmod -R 0775 ${rootpath}
 chmod -R g+s ${rootpath}
 setfacl -Rdm g:apache:rwx ${rootpath}
 
+sudo find ${rootpath} -type d -exec chmod 755 {} \;
+sudo find ${rootpath} -type f -exec chmod 644 {} \;
+
 # go into root folder
 cd /root/tools
 
