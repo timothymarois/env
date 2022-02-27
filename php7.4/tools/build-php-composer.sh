@@ -15,7 +15,7 @@ userpath=/home/${username}
 stagingpath=${userpath}/staging/${directory}
 
 # run the git pull (be sure we're up to date)
-sh ./git-pull.sh ${username} ${directory}
+sh /root/tools/git-pull.sh ${username} ${directory}
 
 # go into repo directory
 cd ${stagingpath}
