@@ -20,11 +20,10 @@ Go to: `cd /root/env` and then `git pull`
 
 **User files** are organized as: `/home/USERNAME`
 
-- `apps` Where all the domains and web apps are located
-- `logs` Where you can log php/http errors
-- `staging` Where all the web app repositories are stored
-- `storage` Where the user can place files for storage
-
+- `/apps` Where all the domains and web apps are located
+- `/logs` Where you can log php/http errors
+- `/staging` Where all the web app repositories are stored
+- `/storage` Where the user can place files for storage
 
 ## Users
 
