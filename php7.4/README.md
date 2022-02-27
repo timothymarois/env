@@ -75,7 +75,7 @@ Removing a site will delete all its contents and remove its SSL certificate.
 sh remove-site.sh USERNAME DOMAIN
 ```
 
-# Staging Web App
+# Web App Staging & Deployment
 
 ### Add Repository
 
