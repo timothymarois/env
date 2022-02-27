@@ -43,6 +43,8 @@ sh add-user.sh USERNAME PASSWORD
 
 ### Remove User
 
+Removing a user will also delete all its contents, including any website data. It is best to remove each site before removing the entire user.
+
 ```
 sh remove-user.sh USERNAME
 ```
