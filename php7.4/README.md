@@ -1,4 +1,4 @@
-## Instructions 
+## How to Install
 
 1) Log into SSH using `ec2-user`
 
@@ -10,11 +10,21 @@
 sudo wget https://raw.githubusercontent.com/timothymarois/env/master/php7.4/install.sh -O - | sh
 ```
 
-## Updates
+## How to Update
 
 You can update this repo on the instance by going to:
 
 Go to: `cd /root/env` and then `git pull`
+
+## File Locations
+
+**User files** are organized as: `/home/USERNAME`
+
+- `apps` Where all the domains and web apps are located
+- `logs` Where you can log php/http errors
+- `staging` Where all the web app repositories are stored
+- `storage` Where the user can place files for storage
+
 
 ## Users
 
