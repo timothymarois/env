@@ -82,6 +82,6 @@ sh remove-site.sh USERNAME DOMAIN
 This will install the repository under the `/home/USERNAME/staging/DIRECTORY`
 
 ```
-# example: https://USERNAME:GITKEY@github.com/${github}.git
+# example (if private): https://USERNAME:GITKEY@github.com/${github}.git
 sh add-git.sh USERNAME DIRECTORY GITHUB_LINK
 ```
