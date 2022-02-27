@@ -1,27 +1,50 @@
+## Instructions 
 
-# README ENV
+1) Log into SSH using `ec2-user`
 
-To install, run this: 
+2) Run `sudo su`
 
-Be sure to run this on `sudo su`
+3) Run the install script:
 
 ```
 sudo wget https://raw.githubusercontent.com/timothymarois/env/master/php7.4/install.sh -O - | sh
 ```
 
-## Adding a new user
 ---------------------------------------
+
+## Updates
+
+Go to: `cd /root/env` and then `git pull`
+
+---------------------------------------
+
+## Users
+
+To add or remove users
+
+### Add User
+
+Password not required and will be auto-generated if omitted.
+
 `add-user.sh USERNAME PASSWORD`
 
-## Remove user (and all its files)
----------------------------------------
+### Remove User
+
 `remove-user.sh USERNAME`
 
-## Adding a new site
----------------------------------------
+## Sites
+
+To add or remove sites
+
+### Add Site (with www. redirect)
+
+`add-sitew.sh USERNAME DOMAIN`
+
+### Add Site
+
 `add-site.sh USERNAME DOMAIN`
 
-## Remove site (and all its files)
----------------------------------------
+### Remove site
+
 `remove-site.sh USERNAME DOMAIN`
 
