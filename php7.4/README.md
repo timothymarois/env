@@ -75,3 +75,13 @@ Removing a site will delete all its contents and remove its SSL certificate.
 sh remove-site.sh USERNAME DOMAIN
 ```
 
+# Staging Web App
+
+### Add Repository
+
+This will install the repository under the `/home/USERNAME/staging/DIRECTORY`
+
+```
+# example: https://USERNAME:GITKEY@github.com/${github}.git
+sh add-git.sh USERNAME DIRECTORY GITHUB_LINK
+```
