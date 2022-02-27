@@ -24,11 +24,15 @@ To add or remove users
 
 Password not required and will be auto-generated if omitted.
 
-`add-user.sh USERNAME PASSWORD`
+```
+add-user.sh USERNAME PASSWORD
+```
 
 ### Remove User
 
-`remove-user.sh USERNAME`
+```
+remove-user.sh USERNAME
+```
 
 ## Sites
 
@@ -38,15 +42,21 @@ Note: before adding a website, it is advised to point the website A record to th
 
 ### Add Site (with www. redirect)
 
-`add-sitew.sh USERNAME DOMAIN`
+```
+add-sitew.sh USERNAME DOMAIN
+```
 
 ### Add Site
 
-`add-site.sh USERNAME DOMAIN`
+```
+add-site.sh USERNAME DOMAIN
+```
 
 ### Remove site
 
 Removing a site will delete all its contents and remove its SSL certificate.
 
-`remove-site.sh USERNAME DOMAIN`
+```
+remove-site.sh USERNAME DOMAIN
+```
 
