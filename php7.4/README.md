@@ -32,7 +32,9 @@ Password not required and will be auto-generated if omitted.
 
 ## Sites
 
-To add or remove sites
+To add or remove sites. 
+
+Note: before adding a website, it is advised to point the website A record to the instance since adding a site will also install the SSL certificate, otherwise it may fail to complete.
 
 ### Add Site (with www. redirect)
 
@@ -43,6 +45,8 @@ To add or remove sites
 `add-site.sh USERNAME DOMAIN`
 
 ### Remove site
+
+Removing a site will delete all its contents and remove its SSL certificate.
 
 `remove-site.sh USERNAME DOMAIN`
 
