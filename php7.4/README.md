@@ -85,3 +85,23 @@ This will install the repository under the `/home/USERNAME/staging/DIRECTORY`
 # example (if private): https://USERNAME:GITKEY@github.com/${github}.git
 sh add-git.sh USERNAME DIRECTORY GITHUB_LINK
 ```
+
+### Build PHP Web App
+
+This will run **git pull** and **composer install** on staging env. 
+
+Use the same DIRECTORY that you setup in the Add Repository section.
+
+```
+sh build-php-composer.sh USERNAME DIRECTORY
+```
+
+### Deploy Web App
+
+This will deploy the php web app from `/staging` to `/apps/DOMAIN`
+
+Use the same DIRECTORY that you setup in the Add Repository section.
+
+```
+sh deploy.sh USERNAME DIRECTORY DOMAIN
+```
