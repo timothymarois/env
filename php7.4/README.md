@@ -18,7 +18,7 @@ Go to: `cd /root/env` and then `git pull`
 
 ## Users
 
-To add or remove users
+To add or remove users from the instance (includes FTP access to each user)
 
 ### Add User
 
