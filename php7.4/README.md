@@ -29,7 +29,7 @@ Go to: `cd /root/env` and then `git pull`
 - `/staging` Where all the web app repositories are stored
 - `/storage` Where the user can place files for storage
 
-## Users
+# Users
 
 To add or remove users from the instance (includes FTP access to each user)
 
@@ -47,7 +47,7 @@ sh add-user.sh USERNAME PASSWORD
 sh remove-user.sh USERNAME
 ```
 
-## Sites
+# Sites
 
 To add or remove sites. 
 
