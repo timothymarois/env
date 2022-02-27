@@ -10,13 +10,11 @@
 sudo wget https://raw.githubusercontent.com/timothymarois/env/master/php7.4/install.sh -O - | sh
 ```
 
----------------------------------------
-
 ## Updates
 
-Go to: `cd /root/env` and then `git pull`
+You can update this repo on the instance by going to:
 
----------------------------------------
+Go to: `cd /root/env` and then `git pull`
 
 ## Users
 
