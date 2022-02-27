@@ -1,6 +1,6 @@
 # ENV
 
-Built for Amazon Linux 2 for EC2 Instances on AWS
+Built for Amazon Linux 2 with EC2 Instances on AWS
 
 ## How to Install
 
