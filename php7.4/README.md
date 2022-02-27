@@ -25,13 +25,13 @@ To add or remove users from the instance (includes FTP access to each user)
 Password not required and will be auto-generated if omitted.
 
 ```
-add-user.sh USERNAME PASSWORD
+sh add-user.sh USERNAME PASSWORD
 ```
 
 ### Remove User
 
 ```
-remove-user.sh USERNAME
+sh remove-user.sh USERNAME
 ```
 
 ## Sites
@@ -43,13 +43,13 @@ Note: before adding a website, it is advised to point the website A record to th
 ### Add Site (with www. redirect)
 
 ```
-add-sitew.sh USERNAME DOMAIN
+sh add-sitew.sh USERNAME DOMAIN
 ```
 
 ### Add Site
 
 ```
-add-site.sh USERNAME DOMAIN
+sh add-site.sh USERNAME DOMAIN
 ```
 
 ### Remove site
@@ -57,6 +57,6 @@ add-site.sh USERNAME DOMAIN
 Removing a site will delete all its contents and remove its SSL certificate.
 
 ```
-remove-site.sh USERNAME DOMAIN
+sh remove-site.sh USERNAME DOMAIN
 ```
 
