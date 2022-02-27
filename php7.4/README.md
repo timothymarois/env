@@ -1,3 +1,7 @@
+# ENV
+
+Built for Amazon Linux 2 for EC2 Instances on AWS
+
 ## How to Install
 
 1) Log into SSH using `ec2-user`
