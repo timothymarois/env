@@ -5,6 +5,7 @@
 # [Important] Please update this list every month
 # -------------------------------------------------------
 <RequireAll>
+    Require not ip 12.27.248.34
 	Require not ip 192.162.40.0/22
 	Require not ip 192.162.56.0/22
 	Require not ip 192.162.64.0/22
