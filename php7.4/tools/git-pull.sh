@@ -2,7 +2,7 @@
 
 # Example:
 # 
-# sh git-pull.sh userName repoName
+# sh git-pull.sh userName repoName branch
 #
 
 # exit when any command fails
@@ -10,6 +10,7 @@ set -e
 
 username=$1
 directory=$2
+branch=$3
 
 userpath=/home/${username}
 stagingpath=${userpath}/staging/${directory} 
@@ -18,7 +19,7 @@ stagingpath=${userpath}/staging/${directory}
 cd ${stagingpath}
 
 # make sure we're in the master branch
-# git checkout master
+git checkout ${branch:='master'}
 
 # pull the lastest repo
 git pull
