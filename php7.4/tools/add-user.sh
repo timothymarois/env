@@ -15,15 +15,18 @@ if grep -q ${username} /etc/passwd ;then
 else
 	useradd -d ${userDirectory}/${username} ${username}; echo -e "${pw}\n${pw}" | passwd ${username}
 	usermod -a -G sftp,apache ${username}
+
 	mkdir -p ${userDirectory}${username}
 	mkdir -p ${userDirectory}${username}/apps
 	mkdir -p ${userDirectory}${username}/storage
 	mkdir -p ${userDirectory}${username}/logs
-	chown -R ${username}:apache ${userDirectory}${username}
-	chmod -R 0775 ${userDirectory}${username}
-
-	# add the staging directory (but dont give permissions to user)
 	mkdir -p ${userDirectory}${username}/staging
+	mkdir -p ${userDirectory}${username}/backups
+
+	chown -R ${username}:${username} ${userDirectory}${username}
+	chmod -R 0600 ${userDirectory}${username}
+	chmod -R 0755 ${userDirectory}${username}/logs
+	chgrp -R apache ${userDirectory}${username}/logs
 
 	echo "--------------------------------"
 	echo "${username} has been created."
