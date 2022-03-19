@@ -1,12 +1,9 @@
 #!/bin/bash
 
-
 # Example:
 # 
 # sh deploy.sh username repoName domain
 #
-#
-
 
 # exit when any command fails
 set -e
@@ -33,9 +30,11 @@ rsync -av -X -A  \
 --delete-after \
 ${stagingpath}/ ${publicpath}
 
-sudo chmod -R 0775 ${domainpath}
-sudo chgrp -R apache ${domainpath}
-sudo chown -R apache ${domainpath}
-
 sudo find ${domainpath} -type d -exec chmod 755 {} \;
 sudo find ${domainpath} -type f -exec chmod 644 {} \;
+
+sudo chgrp -R ${username} ${domainpath}
+sudo chown -R ${username} ${domainpath}
+
+sudo chgrp -R apache ${domainpath}/storage
+sudo chown -R apache ${domainpath}/storage
