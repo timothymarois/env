@@ -93,7 +93,7 @@ This will run **git pull** and **composer install** on staging env.
 
 Use the same REPONAME that you setup in the Add Repository section.
 
-(Note: this has been tested for Laravel builds)
+Note: this has been tested for [Laravel](https://laravel.com/)
 
 ```
 sh build-php-composer.sh USER REPONAME BRANCH
@@ -105,7 +105,7 @@ This will deploy the php web app from `/home/USER/staging/REPONAME` to `/home/US
 
 Use the same REPONAME that you setup in the Add Repository section.
 
-(Note: this has been tested for Laravel deployments)
+Note: this has been tested for [Laravel](https://laravel.com/)
 
 ```
 sh deploy.sh USER REPONAME DOMAIN
