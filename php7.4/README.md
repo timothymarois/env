@@ -22,12 +22,13 @@ Go to: `cd /root/env` and then `git pull`
 
 ## File Locations
 
-**User files** are organized as: `/home/USERNAME`
+**User files** are organized as: `/home/USER`
 
 - `/apps` Where all the domains and web apps are located
-- `/logs` Where you can log php/http errors
+- `/logs` Where you can log php/apache/http errors
 - `/staging` Where all the web app repositories are stored
 - `/storage` Where the user can place files for storage
+- `/backups` Where all the backup files will be stored
 
 # Users
 
@@ -38,7 +39,7 @@ To add or remove users from the instance (includes FTP access to each user)
 Password not required and will be auto-generated if omitted.
 
 ```
-sh add-user.sh USERNAME PASSWORD
+sh add-user.sh USER PASSWORD
 ```
 
 ### Remove User
@@ -46,7 +47,7 @@ sh add-user.sh USERNAME PASSWORD
 Removing a user will also delete all its contents, including any website data. It is best to remove each site before removing the entire user.
 
 ```
-sh remove-user.sh USERNAME
+sh remove-user.sh USER
 ```
 
 # Sites
@@ -58,13 +59,13 @@ Note: before adding a website, it is advised to point the website A record to th
 ### Add Site (with www. redirect)
 
 ```
-sh add-sitew.sh USERNAME DOMAIN
+sh add-sitew.sh USER DOMAIN
 ```
 
 ### Add Site
 
 ```
-sh add-site.sh USERNAME DOMAIN
+sh add-site.sh USER DOMAIN
 ```
 
 ### Remove site
@@ -72,36 +73,40 @@ sh add-site.sh USERNAME DOMAIN
 Removing a site will delete all its contents and remove its SSL certificate.
 
 ```
-sh remove-site.sh USERNAME DOMAIN
+sh remove-site.sh USER DOMAIN
 ```
 
-# Web App Staging & Deployment
+# Web App Build & Deploy
 
 ### Add Repository
 
-This will install the repository under the `/home/USERNAME/staging/DIRECTORY`
+This will install the repository under the `/home/USER/staging/REPONAME`
 
 ```
 # example (if private): https://USERNAME:GITKEY@github.com/${github}.git
-sh add-git.sh USERNAME DIRECTORY GITHUB_LINK
+sh add-git.sh USER REPONAME GITHUB_LINK
 ```
 
-### Build PHP Web App
+### Build PHP/Composer Web App
 
 This will run **git pull** and **composer install** on staging env. 
 
-Use the same DIRECTORY that you setup in the Add Repository section.
+Use the same REPONAME that you setup in the Add Repository section.
+
+(Note: this has been tested for Laravel builds)
 
 ```
-sh build-php-composer.sh USERNAME DIRECTORY
+sh build-php-composer.sh USER REPONAME BRANCH
 ```
 
 ### Deploy Web App
 
-This will deploy the php web app from `/staging` to `/apps/DOMAIN`
+This will deploy the php web app from `/home/USER/staging/REPONAME` to `/home/USER/apps/DOMAIN`
 
-Use the same DIRECTORY that you setup in the Add Repository section.
+Use the same REPONAME that you setup in the Add Repository section.
+
+(Note: this has been tested for Laravel deployments)
 
 ```
-sh deploy.sh USERNAME DIRECTORY DOMAIN
+sh deploy.sh USER REPONAME DOMAIN
 ```
