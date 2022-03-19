@@ -7,9 +7,17 @@ datetime=$(date +"%s")
 
 cd /home
 
-for d in */ ; do
+for userDir in */ ; do
 
-    echo "$d"
+    # echo "$d"
+
+    cd ${userDir}
+
+    for domainDir in */ ; do
+
+        echo "$domainDir"
+
+    done
 
 done
 
