@@ -90,6 +90,7 @@ wget -O epel.rpm –nv \
 https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 sudo yum install -y ./epel.rpm
 sudo yum install -y python2-certbot-apache.noarch
+sudo yum install -y php-devel php-pear gcc zlib-devel
 
 # ------------------------------------------------
 
