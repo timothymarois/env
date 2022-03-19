@@ -1,4 +1,9 @@
 #!/bin/bash
+#
+# This script will run through all the user accounts
+# then through each domain within the account
+# then it will run the backup script of each
+#
 
 # exit when any command fails
 set -e
@@ -9,20 +14,37 @@ cd /home
 
 for userDir in */ ; do
 
-    # echo "$d"
+    appsDirectory="/home/${userDir}apps"
+    backupsDirectory="/home/${userDir}backups"
 
-    cd ${userDir}
+    # if backup directory does not exist, lets create it
+    if [ ! -d ${backupsDirectory} ]; then
+        mkdir -p ${backupsDirectory}
+    fi
 
-    for domainDir in */ ; do
+    if [ -d ${appsDirectory} ]; then
 
-        echo "$domainDir"
+        cd ${appsDirectory}
 
-    done
+        for domain in */ ; do
+
+            domainDirectory="${appsDirectory}/${domain}"
+
+            # if backups exist, then remove all except recent 10
+            if [ -d ${backupsDirectory}/${domain} ]; then
+                cd ${backupsDirectory}/${domain} && rm -rf `ls -t | tail -n +11`
+            fi
+
+            if [ ! -d ${backupsDirectory}/${domain} ]; then
+                mkdir -p ${backupsDirectory}/${domain}
+            fi
+
+            cp -r ${domainDirectory} ${backupsDirectory}/${domain}/${datetime}
+
+        done
+    fi
 
 done
 
 # create a backup of project files
 # cp -r ${directory}/apps/${domain} ${directory}/backups/${domain}/${datetime}
-
-# go into the backup diretory and delete all by 10
-# cd ${directory}/backups && rm -rf `ls -t | tail -n +11`
